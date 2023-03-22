@@ -59,10 +59,9 @@ public class RunnerFetch01 {
         System.out.println(Arrays.toString(uniqueResult01));
 
         // HQL ile
-        String hqlQuery2 ="FROM Student01 WHERE name='Cemil Bey' ";
+        String hqlQuery2 ="FROM Student01 WHERE name='Cemil Bey'";
         Student01 uniqueResult2 = session.createQuery(hqlQuery2, Student01.class).uniqueResult();
         System.out.println(uniqueResult2);
-
 
         tx.commit();
 
