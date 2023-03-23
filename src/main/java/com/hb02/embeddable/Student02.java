@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "t_student02")
-public class Student {
+public class Student02 {
 
     @Id
     private int id;
@@ -61,7 +61,6 @@ public class Student {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", grade=" + grade +
-                ", address=" + address +
                 '}';
     }
 
