@@ -54,14 +54,25 @@ public class RunnerFetch01 {
         // !!! Donecek kaydin unique (tek bir tane) oldugundan emin isem uniqueResult() ...
 
         // SQL ile
-        String sqlQuery2 = "SELECT * FROM t_student01 WHERE student_name ilike 'cemil bey'";
-        Object[] uniqueResult01 =(Object[]) session.createSQLQuery(sqlQuery2).uniqueResult();
-        System.out.println(Arrays.toString(uniqueResult01));
+//        String sqlQuery2 = "SELECT * FROM t_student01 WHERE student_name ilike 'cemil bey'";
+//        Object[] uniqueResult01 =(Object[]) session.createSQLQuery(sqlQuery2).uniqueResult();
+//        System.out.println(Arrays.toString(uniqueResult01));
 
         // HQL ile
-        String hqlQuery2 ="FROM Student01 WHERE name='Cemil Bey'";
-        Student01 uniqueResult2 = session.createQuery(hqlQuery2, Student01.class).uniqueResult();
-        System.out.println(uniqueResult2);
+//        String hqlQuery2 ="FROM Student01 WHERE name='Cemil Bey'";
+//        Student01 uniqueResult2 = session.createQuery(hqlQuery2, Student01.class).uniqueResult();
+//        System.out.println(uniqueResult2);
+        // !!! YUKARIDAKI SORGUYU HQL alias kullanarak yapalim
+//        String hqlQuery3 ="FROM Student01 std WHERE std.name='Cemil Bey'";
+//        Student01 uniqueResult3 = session.createQuery(hqlQuery3, Student01.class).uniqueResult();
+//        System.out.println(uniqueResult3);
+
+        /// !!! HQL ile grade degeri 90 olan ogrenciyi getirelim
+        String hqlQuery4 = "SELECT s.id, s.name FROM Student01 s WHERE s.grade=90";
+        List<Object[]> resultList4 = session.createQuery(hqlQuery4).getResultList();
+        for (Object[] object: resultList4) {
+            System.out.println(Arrays.toString(object));
+        }
 
         tx.commit();
 
