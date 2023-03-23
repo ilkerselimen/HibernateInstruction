@@ -1,6 +1,5 @@
 package com.hb02.embeddable;
 
-import com.hb02.Address;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

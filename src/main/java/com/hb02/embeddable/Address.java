@@ -1,4 +1,4 @@
-package com.hb02;
+package com.hb02.embeddable;
 
 import javax.persistence.Embeddable;
 

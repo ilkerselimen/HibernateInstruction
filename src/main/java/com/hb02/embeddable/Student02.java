@@ -1,7 +1,5 @@
 package com.hb02.embeddable;
 
-import com.hb02.Address;
-
 import javax.persistence.*;
 
 @Entity
