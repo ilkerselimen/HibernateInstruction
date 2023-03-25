@@ -50,13 +50,14 @@ public class RunnerSave04 {
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
 
-        session.save(student1);
-        session.save(student2);
-        session.save(student3);
+//        session.save(student1);
+//        session.save(student2);
+//        session.save(student3);
+//
+//        session.save(diary1);
+//        session.save(diary2);
+//        session.save(diary3);
 
-        session.save(diary1);
-        session.save(diary2);
-        session.save(diary3);
 
 
         tx.commit();
