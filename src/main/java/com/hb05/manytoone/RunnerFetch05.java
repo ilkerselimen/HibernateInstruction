@@ -18,9 +18,9 @@ public class RunnerFetch05 {
         Transaction tx =  session.beginTransaction();
 
         // !!! get metodu
-        Student05 student = session.get(Student05.class,1001);
-        System.out.println(student);
-        System.out.println(student.getUniversity());
+//        Student05 student = session.get(Student05.class,1001);
+//        System.out.println(student);
+//        System.out.println(student.getUniversity());
 
         // !!! HQL ile 1 id li universiteye giden butun ogrencileri bulalim
         String hqlQuery = "FROM Student05 s WHERE s.university.id=1";
