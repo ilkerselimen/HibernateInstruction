@@ -64,10 +64,16 @@ public class RunnerFetch07 {
         // 2.yol ) Student classina Cascade / orphanRemoval
 
         // !!! 1001 id li student objemi delete metodu ile silelim
-        Student07 student2 = session.get(Student07.class, 1001);
-        session.delete(student2);
+//        Student07 student2 = session.get(Student07.class, 1001);
+//        session.delete(student2);
+
+//        student2.getBookList().set(0,null); //101, 102 --> null, 102
 
 
+        // !!! book ismi içinde "Book" geçen student kayıtlarını alalım ( HQL )
+        String hqlQuery5 = "SELECT s FROM Student07 s JOIN s.bookList b WHERE lower(b.name) LIKE '%book%'";
+        List<Student07> resultList4 = session.createQuery(hqlQuery5,Student07.class).getResultList();
+        resultList4.forEach(System.out::println);
 
 
 
