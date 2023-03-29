@@ -1,9 +1,6 @@
 package com.hb08.manytomany;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +16,11 @@ public class Student08 {
     private int grade;
 
     @ManyToMany
+    @JoinTable(
+            name = "student08_book08",
+            joinColumns = {@JoinColumn(name = "std_id")},
+            inverseJoinColumns = {@JoinColumn(name = "book_id")}
+    )
     private List<Book08> bookList = new ArrayList<>();
 
     // !!! GETTER - SETTER
