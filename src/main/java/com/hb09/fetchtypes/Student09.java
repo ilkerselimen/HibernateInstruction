@@ -15,7 +15,16 @@ public class Student09 {
 
     private int grade;
 
-    @OneToMany(cascade = CascadeType.ALL)
+
+    /*
+    2.taraf Many ise default olarak Lazy , One ise default olarak EAGER yapar :
+    OneToMany       --> LAZY
+    ManyToMany      --> LAZY
+    OneToOne        --> EAGER
+    ManyToOne       --> EAGER
+ */
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL , fetch = FetchType.EAGER)
     private List<Book09> bookList = new ArrayList<>();
 
     // !!! Getter- Setter
