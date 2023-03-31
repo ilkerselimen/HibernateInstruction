@@ -16,12 +16,22 @@ public class RunnerFetch09 {
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
 
+        Student09 student = session.get(Student09.class,1002);
+//        System.out.println(student.getBookList());
 
+//         Book09 book1 = session.get(Book09.class, 101);
+//        for (Book09 book: student.getBookList()) { // lAZY
+//            System.out.println(book);
+//        }
 
 
         tx.commit();
 
         session.close();
+
+        for (Book09 book: student.getBookList()) { // lAZY
+            System.out.println(book);
+        }
 
         sf.close();
 

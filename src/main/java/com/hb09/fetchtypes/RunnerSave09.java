@@ -43,8 +43,8 @@ public class RunnerSave09 {
         book5.setId(105);
         book5.setName("E Book");
 
-        //Cascade den dolayi @OneToMany iliskinin kurulabilmesi icin her iki entity class uzerinden
-        //  setleme islemi yapmamiz gerekir, eger yapmazsak @JoinColumn ile eklenen column null degerler ile dolar.
+        // Cascade den dolayi @OneToMany iliskinin kurulabilmesi icin her iki entity class uzerinden
+        // setleme islemi yapmamiz gerekir, eger yapmazsak @JoinColum ile eklenen kolon null degerler ile dolar
         student1.getBookList().add(book1);
         student1.getBookList().add(book2);
 
