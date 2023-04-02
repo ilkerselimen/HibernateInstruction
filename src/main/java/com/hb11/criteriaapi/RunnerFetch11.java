@@ -8,6 +8,7 @@ import org.hibernate.cfg.Configuration;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
 import java.util.Random;
@@ -57,10 +58,37 @@ public class RunnerFetch11 {
         criteriaQuery.select(root). // SELECT * FROM Student11 s
                 where(cb.equal(root.get("name"), "Student Name 6")); // WHERE s.name=""
 
-        Query<Student11> query2 = session.createQuery(criteriaQuery);
-        List<Student11> resultList2 = query2.getResultList();
-        resultList2.forEach(System.out::println);
+//        Query<Student11> query2 = session.createQuery(criteriaQuery);
+//        List<Student11> resultList2 = query2.getResultList();
+//        resultList2.forEach(System.out::println);
 
+        //!!!  3.Örnek, mathGrade değeri 80 den büyük olan dataları getirelim
+//        criteriaQuery.select(root).
+//                where(cb.greaterThan(root.get("mathGrade"),80));
+//        Query<Student11> query3 = session.createQuery(criteriaQuery);
+//        List<Student11> resultList3 = query3.getResultList();
+//        resultList3.forEach(System.out::println);
+
+        //!!! 4.Örnek MathGrade değeri 95 den küçük olan datalar
+//        criteriaQuery.select(root).
+//                where(cb.lessThan(root.get("mathGrade"),95));
+//        Query<Student11> query4 = session.createQuery(criteriaQuery);
+//        List<Student11> resultList4 = query4.getResultList();
+//        resultList4.forEach(System.out::println);
+
+        // !!! 5. örnek : id si 1 veya mathGrade i 75 den büyük olan recordu bulalım
+        Long id = 1L;
+
+        Predicate predicateForName = cb.equal(root.get("id"),id);
+        Predicate predicateForMathGrade = cb.greaterThan(root.get("mathGrade"),75);
+
+        Predicate predicateStd = cb.or(predicateForName,predicateForMathGrade);
+
+        criteriaQuery.where(predicateStd);
+
+        Query<Student11> query5 = session.createQuery(criteriaQuery);
+        List<Student11> resultList5 = query5.getResultList();
+        resultList5.forEach(System.out::println);
 
         tx.commit();
         session.close();
