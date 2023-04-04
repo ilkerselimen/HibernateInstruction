@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-        <!DOCTYPE hibernate-configuration PUBLIC
+<!DOCTYPE hibernate-configuration PUBLIC
 
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 
@@ -29,16 +29,25 @@
              none: yukarıdakilerin hiç birisini yapmıyor.
          -->
 
-        <property name="hbm2ddl.auto">update</property> <!-- create app markete cikmadan once test vs. icin kullanilabilir -->
+        <property name="hbm2ddl.auto">update</property>
 
         <property name="show_sql">true</property>
 
         <property name="format_sql">true</property>
 
-     <!--
-        <mapping class="com.hb05.manytoone.Student05"/>
-        <mapping class="com.hb05.manytoone.University"/>
-     -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.jcache.internal.JCacheRegionFactory</property>
+        <property name="hibernate.javax.cache.provider">org.ehcache.jsr107.EhcacheCachingProvider</property>
+
+
+
+        <!--
+            <mapping class ="com.hb05.manytoone.Student05"/>
+            <mapping class ="com.hb05.manytoone.University"/>
+         -->
+
 
     </session-factory>
 
